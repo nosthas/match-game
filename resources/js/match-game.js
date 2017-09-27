@@ -10,7 +10,23 @@ var MatchGame = {};
  */
 
 MatchGame.generateCardValues = function () {
+    //Card Set variables
+    var orderedCardSet = [];
+    var randomCardsSet = [];
 
+    //Generates the Ordered Card Sets
+    for (var i = 1; i <= 8; i++) {
+      orderedCardSet.push(i);
+      orderedCardSet.push(i);
+    }
+
+    while(orderedCardSet.length != 0){
+      var randomIndex = Math.floor(Math.random() * (orderedCardSet.length - 1 + 1)) + 1;
+      randomCardsSet.push(orderedCardSet[randomIndex - 1]);
+      orderedCardSet.splice(randomIndex-1,1);
+    }
+
+    return randomCardsSet;
 };
 
 /*
